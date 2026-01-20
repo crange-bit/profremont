@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор ремонта - ПрофРемонт</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success d-flex align-items-center" href="index.html">
+                <img src="img/logo.png" alt="ПрофРемонт" class="me-2">ПрофРемонт
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="calculator.html">Калькулятор</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-success text-white py-5 mt-5">
+        <div class="container py-4">
+            <h1 class="display-5 fw-bold">Калькулятор стоимости ремонта</h1>
+            <p class="lead">Заполните параметры и получите точный расчет стоимости ремонта</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <div class="calculator-steps mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <div class="step active" data-step="1">1. Помещение</div>
+                                    <div class="step" data-step="2">2. Работы</div>
+                                    <div class="step" data-step="3">3. Материалы</div>
+                                    <div class="step" data-step="4">4. Дополнительно</div>
+                                </div>
+                            </div>
+
+                            <!-- Шаг 1: Помещение -->
+                            <div class="form-step active" id="step1">
+                                <h3 class="mb-4">Параметры помещения</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Тип помещения</label>
+                                        <select class="form-select" id="apartmentType">
+                                            <option value="new">Новостройка (черновая отделка)</option>
+                                            <option value="secondary">Вторичное жилье</option>
+                                            <option value="office">Офисное помещение</option>
+                                            <option value="cottage">Коттедж/Таунхаус</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Общая площадь (м²)</label>
+                                        <div class="d-flex align-items-center">
+                                            <input type="range" class="form-range flex-grow-1 me-3" id="totalArea" min="20" max="300" value="60">
+                                            <span class="badge bg-success fs-6" id="areaValue">60 м²</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Количество комнат</label>
+                                        <select class="form-select" id="roomCount">
+                                            <option value="1">1 комната</option>
+                                            <option value="2" selected>2 комнаты</option>
+                                            <option value="3">3 комнаты</option>
+                                            <option value="4">4 комнаты</option>
+                                            <option value="5">5+ комнат</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Высота потолков (м)</label>
+                                        <select class="form-select" id="ceilingHeight">
+                                            <option value="2.5">2.5 м</option>
+                                            <option value="2.7" selected>2.7 м</option>
+                                            <option value="3.0">3.0 м</option>
+                                            <option value="3.5">3.5+ м</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button class="btn btn-success float-end" onclick="showStep(2)">Далее <i class="bi bi-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Шаг 2: Работы -->
+                            <div class="form-step" id="step2">
+                                <h3 class="mb-4">Виды работ</h3>
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Тип ремонта</label>
+                                        <select class="form-select" id="repairType">
+                                            <option value="cosmetic">Косметический</option>
+                                            <option value="capital">Капитальный</option>
+                                            <option value="euro">Евроремонт</option>
+                                            <option value="designer">Дизайнерский</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <label class="form-label fw-bold">Черновые работы</label>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="demolition" value="15000">
+                                                <label class="form-check-label" for="demolition">Демонтаж</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="electric" value="50000">
+                                                <label class="form-check-label" for="electric">Электрика</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="plumbing" value="75000">
+                                                <label class="form-check-label" for="plumbing">Сантехника</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="plaster" value="40000">
+                                                <label class="form-check-label" for="plaster">Штукатурка</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button class="btn btn-outline-success" onclick="showStep(1)"><i class="bi bi-arrow-left"></i> Назад</button>
+                                        <button class="btn btn-success" onclick="showStep(3)">Далее <i class="bi bi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+
+                                <!-- Шаг 3: Материалы -->
+                                <div class="form-step" id="step3">
+                                    <h3 class="mb-4">Качество материалов</h3>
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Класс материалов</label>
+                                        <select class="form-select" id="materialQuality">
+                                            <option value="economy">Эконом</option>
+                                            <option value="standard" selected>Стандарт</option>
+                                            <option value="premium">Премиум</option>
+                                            <option value="luxury">Люкс</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <label class="form-label fw-bold">Чистовые работы</label>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="floorFinish" value="80000">
+                                                <label class="form-check-label" for="floorFinish">Напольные покрытия</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="wallpaper" value="45000">
+                                                <label class="form-check-label" for="wallpaper">Обои/Покраска</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="ceilingFinish" value="30000">
+                                                <label class="form-check-label" for="ceilingFinish">Потолки</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="doors" value="60000">
+                                                <label class="form-check-label" for="doors">Межкомнатные двери</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button class="btn btn-outline-success" onclick="showStep(2)"><i class="bi bi-arrow-left"></i> Назад</button>
+                                        <button class="btn btn-success" onclick="showStep(4)">Далее <i class="bi bi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+
+                                <!-- Шаг 4: Дополнительно -->
+                                <div class="form-step" id="step4">
+                                    <h3 class="mb-4">Дополнительные услуги</h3>
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Срочность выполнения</label>
+                                            <select class="form-select" id="urgency">
+                                                <option value="normal">Стандартный срок</option>
+                                                <option value="fast">Ускоренный (+20%)</option>
+                                                <option value="urgent">Срочный (+40%)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Дизайн-проект</label>
+                                            <select class="form-select" id="design">
+                                                <option value="none">Без дизайн-проекта</option>
+                                                <option value="basic">Базовый проект</option>
+                                                <option value="full">Полный проект</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <label class="form-label fw-bold">Дополнительные опции</label>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="furniture" value="100000">
+                                                <label class="form-check-label" for="furniture">Мебель на заказ</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="technics" value="75000">
+                                                <label class="form-check-label" for="technics">Встраиваемая техника</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="cleaning" value="15000">
+                                                <label class="form-check-label" for="cleaning">Уборка после ремонта</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check border p-3 rounded">
+                                                <input class="form-check-input" type="checkbox" id="supervision" value="50000">
+                                                <label class="form-check-label" for="supervision">Технический надзор</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button class="btn btn-outline-success" onclick="showStep(3)"><i class="bi bi-arrow-left"></i> Назад</button>
+                                        <button class="btn btn-success" onclick="calculateCost()">Рассчитать <i class="bi bi-calculator"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Как работает калькулятор?</h5>
+                                <p class="card-text">Калькулятор учитывает все основные параметры ремонта: площадь помещения, тип работ, качество материалов и дополнительные услуги. Расчет производится на основе средних рыночных цен в Москве.</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Учитывается площадь и количество комнат</li>
+                                    <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Учитывается тип ремонта (косметический, капитальный и т.д.)</li>
+                                    <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Учитывается качество материалов</li>
+                                    <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Учитываются дополнительные работы</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+                            <div class="card-body bg-success text-white rounded">
+                                <h3 class="card-title text-center mb-4">Примерная стоимость</h3>
+                                <div class="text-center mb-4">
+                                    <div class="display-4 fw-bold" id="totalPrice">0 ₽</div>
+                                    <p class="mb-0">Срок выполнения: <span id="repairTime">2-3 недели</span></p>
+                                </div>
+                                
+                                <div class="details bg-success bg-opacity-75 rounded p-3">
+                                    <div class="d-flex justify-content-between py-2 border-bottom border-white border-opacity-25">
+                                        <span>Черновые материалы:</span>
+                                        <span id="materialsCost">0 ₽</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-2 border-bottom border-white border-opacity-25">
+                                        <span>Работы:</span>
+                                        <span id="workCost">0 ₽</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-2 border-bottom border-white border-opacity-25">
+                                        <span>Чистовые материалы:</span>
+                                        <span id="finishCost">0 ₽</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-2">
+                                        <span>Доп. услуги:</span>
+                                        <span id="additionalCost">0 ₽</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <a href="contact.html" class="btn btn-light w-100 mt-3">
+                                        <i class="bi bi-telephone me-2"></i>Получить консультацию
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h4 class="fw-bold text-success mb-4">ПрофРемонт</h4>
+                        <p>Профессиональный подход к ремонту квартир. Более 500 успешных проектов.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold mb-4">Навигация</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Главная</a></li>
+                            <li class="mb-2"><a href="calculator.html" class="text-white text-decoration-none">Калькулятор</a></li>
+                            <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Услуги</a></li>
+                            <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold mb-4">Контакты</h5>
+                        <p>
+                            <i class="bi bi-telephone me-2"></i>
+                            <a href="tel:+79308301344" class="text-white text-decoration-none">+7 (930) 830-13-44</a>
+                        </p>
+                        <p>
+                            <i class="bi bi-envelope me-2"></i>
+                            <a href="mailto:oscritm@mail.ru" class="text-white text-decoration-none">oscritm@mail.ru</a>
+                        </p>
+                        <p><i class="bi bi-geo-alt me-2"></i>Владимир, Октябрьский проспект, 21</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="calculator.js"></script>
+    </body>
+</html>

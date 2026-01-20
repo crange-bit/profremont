@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПрофРемонт - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success d-flex align-items-center" href="index.html">
+                <img src="img/logo.png" alt="ПрофРемонт" class="me-2">ПрофРемонт
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculator.html">Калькулятор</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section bg-success text-white py-5 mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Рассчитайте стоимость ремонта за 2 минуты</h1>
+                    <p class="lead mb-4">Точный онлайн-калькулятор для планирования бюджета на ремонт квартиры. Узнайте стоимость работ и материалов без скрытых платежей.</p>
+                    <a href="calculator.html" class="btn btn-warning btn-lg px-4">
+                        <i class="bi bi-calculator me-2"></i>Рассчитать стоимость
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="img/hero.jpg" alt="Ремонт квартиры" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Почему выбирают нас</h2>
+                <p class="text-muted">Более 10 лет на рынке ремонтных услуг</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="card-body">
+                            <div class="feature-icon text-success mb-3">
+                                <i class="bi bi-lightning-charge-fill fs-1"></i>
+                            </div>
+                            <h4 class="card-title">Быстрый расчет</h4>
+                            <p class="card-text">Узнайте стоимость ремонта за 2 минуты без посещения офиса</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="card-body">
+                            <div class="feature-icon text-success mb-3">
+                                <i class="bi bi-cash-coin fs-1"></i>
+                            </div>
+                            <h4 class="card-title">Фиксированная цена</h4>
+                            <p class="card-text">Никаких скрытых платежей и доплат в процессе работы</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="card-body">
+                            <div class="feature-icon text-success mb-3">
+                                <i class="bi bi-shield-check fs-1"></i>
+                            </div>
+                            <h4 class="card-title">Гарантия 2 года</h4>
+                            <p class="card-text">Даем официальную гарантию на все виды работ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Наши работы</h2>
+                <p class="text-muted">Реализованные проекты</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image">
+                            <img src="img/apartment1.jpg" alt="3-комнатная квартира" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">3-комнатная квартира</h5>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-success">Евроремонт</span>
+                                <span class="badge bg-secondary">120 м²</span>
+                                <span class="badge bg-info">1 месяца</span>
+                            </div>
+                            <p class="card-text">Полный цикл работ с дизайн-проектом в ЖК "Серебряный"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image">
+                            <img src="img/apartment2.jpg" alt="Офис в бизнес-центре" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Офис в бизнес-центре</h5>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-warning text-dark">Капитальный</span>
+                                <span class="badge bg-secondary">85 м²</span>
+                                <span class="badge bg-info">2 месяца</span>
+                            </div>
+                            <p class="card-text">Ремонт офисного помещения под ключ в БЦ "Столичный"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image">
+                            <img src="img/apartment3.jpg" alt="Квартира-студия" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Квартира-студия</h5>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-primary">Косметический</span>
+                                <span class="badge bg-secondary">45 м²</span>
+                                <span class="badge bg-info">3 недели</span>
+                            </div>
+                            <p class="card-text">Быстрый ремонт для сдачи в аренду в новостройке</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-warning bg-opacity-10">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-4">Готовы начать ремонт?</h2>
+            <p class="lead mb-4">Рассчитайте стоимость прямо сейчас и получите скидку 5% на первый заказ!</p>
+            <a href="calculator.html" class="btn btn-success btn-lg px-5">
+                <i class="bi bi-calculator me-2"></i>Рассчитать стоимость
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold text-success mb-4">ПрофРемонт</h4>
+                    <p>Профессиональный подход к ремонту квартир. Более 500 успешных проектов.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-4">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Главная</a></li>
+                        <li class="mb-2"><a href="calculator.html" class="text-white text-decoration-none">Калькулятор</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Услуги</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-4">Контакты</h5>
+                    <p>
+                        <i class="bi bi-telephone me-2"></i>
+                        <a href="tel:+79308301344" class="text-white text-decoration-none">+7 (930) 830-13-44</a>
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope me-2"></i>
+                        <a href="mailto:oscritm@mail.ru" class="text-white text-decoration-none">oscritm@mail.ru</a>
+                    </p>
+                    <p><i class="bi bi-geo-alt me-2"></i>Владимир, Октябрьский проспект, 21</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

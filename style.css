@@ -1,0 +1,156 @@
+body {
+    padding-top: 76px;
+}
+
+.navbar-brand img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(46, 139, 87, 0.9), rgba(46, 139, 87, 0.8));
+}
+
+.calculator-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.calculator-steps:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #dee2e6;
+    z-index: 1;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 120px;
+}
+
+.step.active {
+    background-color: #2E8B57;
+    color: white;
+    font-weight: bold;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.portfolio-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.portfolio-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-image:hover img {
+    transform: scale(1.05);
+}
+
+.process-step {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: bold;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-placeholder {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon {
+    color: #2E8B57;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+footer a.text-white:hover {
+    color: #90EE90 !important;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .step {
+        min-width: auto;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .navbar-brand img {
+        height: 32px;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .step {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    body {
+        padding-top: 66px;
+    }
+}
