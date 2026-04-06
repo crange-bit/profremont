@@ -353,27 +353,32 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="calculator.js"></script>
-        <!-- Модальное окно уведомления о сборе данных -->
-<div id="stats-modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;display:none;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;">
-    <div id="stats-modal" style="background:#fff;border-radius:12px;max-width:500px;width:100%;padding:24px;box-shadow:0 10px 40px rgba(0,0,0,0.3);position:relative;animation:modalFadeIn 0.3s ease;">
-        <button id="stats-modal-close" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;color:#666;cursor:pointer;line-height:1;">&times;</button>
-        <h3 style="margin:0 0 16px 0;color:#2d2d2d;font-size:18px;font-weight:600;">Уведомление о сборе данных</h3>
-        <p style="margin:0 0 20px 0;color:#444;font-size:14px;line-height:1.5;">
+<div id="stats-modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;display:none;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;">
+    <div id="stats-modal" style="background:#fff;border-radius:12px;max-width:480px;width:100%;padding:28px;box-shadow:0 15px 50px rgba(22,118,73,0.25);position:relative;animation:modalFadeIn 0.3s ease;border-top:4px solid #167649;">
+        <button id="stats-modal-close" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:26px;color:#888;cursor:pointer;line-height:1;transition:color 0.2s;">&times;</button>
+        <h3 style="margin:0 0 18px 0;color:#167649;font-size:19px;font-weight:700;text-align:center;">Уведомление о сборе данных</h3>
+        <p style="margin:0 0 24px 0;color:#333;font-size:14px;line-height:1.6;text-align:center;">
             Этот сайт собирает статистику посещения и данные посетителей для улучшения качества сервиса. 
-            <a href="privacy-policy.html" style="color:#06f;text-decoration:none;font-weight:500;">Политика конфиденциальности</a>
+            <a href="privacy-policy.html" style="color:#167649;text-decoration:none;font-weight:600;border-bottom:1px dashed #167649;">Политика конфиденциальности</a>
         </p>
-        <button id="stats-modal-accept" style="width:100%;background:#06f;color:#fff;border:none;padding:12px 20px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;">
+        <button id="stats-modal-accept" style="width:100%;background:#167649;color:#fff;border:none;padding:14px 20px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.1s;">
             Принять и продолжить
         </button>
+        <p style="margin:16px 0 0 0;color:#777;font-size:12px;text-align:center;">Нажимая «Принять», вы соглашаетесь с обработкой данных</p>
     </div>
 </div>
 <style>
     @keyframes modalFadeIn {
-        from { opacity: 0; transform: translateY(-20px); }
+        from { opacity: 0; transform: translateY(-15px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    #stats-modal-accept:hover { background: #0556d4; }
-    #stats-modal-close:hover { color: #333; }
+    #stats-modal-accept:hover { background: #115a3a; }
+    #stats-modal-accept:active { transform: scale(0.98); }
+    #stats-modal-close:hover { color: #167649; }
+    @media (max-width: 480px) {
+        #stats-modal { padding: 24px 20px; }
+        #stats-modal h3 { font-size: 18px; }
+    }
 </style>
 <script>
     (function() {
@@ -381,15 +386,13 @@
         var closeBtn = document.getElementById('stats-modal-close');
         var acceptBtn = document.getElementById('stats-modal-accept');
         
-        // Показываем модальное окно, если пользователь ещё не давал согласие
         if (!localStorage.getItem('statsConsent')) {
             setTimeout(function() {
                 overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+                document.body.style.overflow = 'hidden';
             }, 500);
         }
         
-        // Функция закрытия окна
         function closeModal() {
             overlay.style.opacity = '0';
             overlay.style.transition = 'opacity 0.2s';
@@ -400,7 +403,6 @@
             }, 200);
         }
         
-        // Обработчики событий
         acceptBtn.addEventListener('click', function() {
             localStorage.setItem('statsConsent', 'true');
             closeModal();
@@ -411,7 +413,6 @@
             closeModal();
         });
         
-        // Закрытие по клику на затемнённый фон
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {
                 localStorage.setItem('statsConsent', 'true');
